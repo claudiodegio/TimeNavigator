@@ -12,6 +12,13 @@
         android:id="@+id/bt_screen1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Screen1"
+        android:text="Time Navigator"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/bt_screen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Navigator (with limits)"
         android:layout_gravity="center" />
 </LinearLayout>

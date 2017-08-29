@@ -1,7 +1,6 @@
 package com.claudiodegio.timenavigator.sample;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -13,16 +12,18 @@ import com.claudiodegio.timenavigator.OnTimeSelectListener;
 import com.claudiodegio.timenavigator.TimeInterval;
 import com.claudiodegio.timenavigator.TimeNavigator;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import org.joda.time.DateTime;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class Screen1Activity extends AppCompatActivity implements OnTimeSelectListener {
+
+public class Screen2Activity extends AppCompatActivity implements OnTimeSelectListener {
 
 
     @BindView(R.id.tn)
@@ -31,18 +32,33 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
     @BindView(R.id.tv_period_selected)
     TextView mTvPeriodSelected;
 
+    @BindView(R.id.tv_limits)
+    TextView mTvLimits;
+
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_screen1);
+        setContentView(R.layout.activity_screen2);
 
         ButterKnife.bind(this);
 
         updateLabel();
 
         mTimeNavigator.setOnTimeSelectListener(this);
+
+        Date startDate = DateTime.parse("2016-01-01").toDate();
+        mTimeNavigator.setTimeLimits(startDate, new Date());
+
+        String text = "StartDate: " + df.format(startDate);
+
+        text += "<br>EnDate: " + df.format(new Date());
+
+        mTvLimits.setText(Html.fromHtml(text));
+
+
     }
 
 
@@ -79,8 +95,6 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
     private void updateLabel(){
 
         String text;
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
 
         Pair<Date, Date> interval =  mTimeNavigator.getCurrentInterval();
 

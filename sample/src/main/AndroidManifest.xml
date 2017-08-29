@@ -18,5 +18,7 @@
         </activity>
 
         <activity android:name=".Screen1Activity"/>
+
+        <activity android:name=".Screen2Activity"/>
     </application>
 </manifest>

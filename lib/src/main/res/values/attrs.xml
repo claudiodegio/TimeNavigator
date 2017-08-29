@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="TimeNavigator">
+
+        <attr name="timeInterval">
+            <enum name="EveryThing" value="0"/>
+            <enum name="Year" value="1"/>
+            <enum name="Month" value="2"/>
+            <enum name="Week" value="3"/>
+            <enum name="Day" value="4"/>
+        </attr>
+    </declare-styleable>
+</resources>

@@ -12,12 +12,14 @@
         android:layout_height="36dip"
         android:background="?attr/selectableItemBackground"
         android:tint="#FFFFFF"
+        android:visibility="invisible"
         app:srcCompat="@drawable/chevron_left" />
 
     <TextView
         android:id="@+id/tv_current"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:text="TextView" />
 
     <ImageButton
@@ -26,5 +28,6 @@
         android:layout_height="36dip"
         android:background="?attr/selectableItemBackground"
         android:tint="#FFFFFF"
+        android:visibility="invisible"
         app:srcCompat="@drawable/chevron_right" />
 </LinearLayout>
