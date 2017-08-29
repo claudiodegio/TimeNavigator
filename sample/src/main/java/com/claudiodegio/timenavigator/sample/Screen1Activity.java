@@ -46,7 +46,7 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
     }
 
 
-    @OnClick({R.id.bt_year, R.id.bt_month, R.id.bt_week, R.id.bt_all})
+    @OnClick({R.id.bt_year, R.id.bt_month, R.id.bt_week, R.id.bt_all,R.id.bt_day})
     public void actionOnButtonClick(View view){
 
         switch (view.getId()) {

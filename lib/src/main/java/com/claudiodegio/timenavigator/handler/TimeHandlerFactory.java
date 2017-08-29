@@ -16,6 +16,12 @@ public class TimeHandlerFactory {
                 return new EverythingTimeHandler(context);
             case TimeInterval.YEAR:
                 return new YearTimeHandler(context);
+            case TimeInterval.MONTH:
+                return new MonthTimeHandler(context);
+            case TimeInterval.WEEK:
+                return new WeekTimeHandler(context);
+            case TimeInterval.DAY:
+                return new DayTimeHandler(context);
            default:
                 return new ToImplementsTimeHandler(context);
         }
