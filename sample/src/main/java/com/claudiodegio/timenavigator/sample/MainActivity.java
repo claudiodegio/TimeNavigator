@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setOnClickListener(this);
         findViewById(R.id.bt_screen2)
                 .setOnClickListener(this);
+        findViewById(R.id.bt_screen3)
+                .setOnClickListener(this);
+        findViewById(R.id.bt_screen4)
+                .setOnClickListener(this);
     }
 
     @Override
@@ -32,6 +36,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_screen2:
 
                 intent = new Intent(this, Screen2Activity.class);
+                break;
+
+            case R.id.bt_screen3:
+
+                intent = new Intent(this, Screen3Activity.class);
+                break;
+
+            case R.id.bt_screen4:
+
+                intent = new Intent(this, Screen4Activity.class);
                 break;
 
         }

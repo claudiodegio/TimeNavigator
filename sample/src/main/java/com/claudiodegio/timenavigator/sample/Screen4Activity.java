@@ -1,7 +1,6 @@
 package com.claudiodegio.timenavigator.sample;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,16 +13,16 @@ import com.claudiodegio.timenavigator.OnTimeSelectListener;
 import com.claudiodegio.timenavigator.TimeInterval;
 import com.claudiodegio.timenavigator.TimeNavigator;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class Screen1Activity extends AppCompatActivity implements OnTimeSelectListener {
+
+public class Screen4Activity extends AppCompatActivity implements OnTimeSelectListener {
 
 
     @BindView(R.id.tn)
@@ -37,7 +36,7 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_screen1);
+        setContentView(R.layout.activity_screen4);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 

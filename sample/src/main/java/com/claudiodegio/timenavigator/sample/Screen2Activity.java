@@ -3,6 +3,7 @@ package com.claudiodegio.timenavigator.sample;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Pair;
 import android.view.View;
@@ -42,6 +43,8 @@ public class Screen2Activity extends AppCompatActivity implements OnTimeSelectLi
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_screen2);
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
         ButterKnife.bind(this);
 

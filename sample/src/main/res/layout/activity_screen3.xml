@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
+
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,9 +22,12 @@
             android:id="@+id/tn"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:tnColor="@color/colorAccent"
+            app:tnTextSize="14pt"
             app:tnInterval="EveryThing"/>
 
     </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,13 +64,6 @@
             android:text="ALL" />
 
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/tv_limits"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
     <TextView
         android:id="@+id/tv_period_selected"
