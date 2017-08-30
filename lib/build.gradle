@@ -31,4 +31,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'joda-time:joda-time:2.9.9'
+
+    compile 'org.apache.commons:commons-text:1.1'
 }

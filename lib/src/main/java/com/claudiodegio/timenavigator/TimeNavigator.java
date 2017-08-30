@@ -2,9 +2,15 @@ package com.claudiodegio.timenavigator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.Pair;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
@@ -14,6 +20,7 @@ import android.widget.TextView;
 import com.claudiodegio.timenavigator.handler.TimeHandler;
 import com.claudiodegio.timenavigator.handler.TimeHandlerFactory;
 
+import org.apache.commons.text.WordUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 
@@ -49,10 +56,10 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
         initializeViews(context);
         initStyle(attrs, defStyleAttr);
 
-        // TODO da sistemare
-
         mTimeHandler = TimeHandlerFactory.buildTimeHandler(mTimeInterval, context);
         mCurrentTime = DateTime.now();
+
+
     }
 
     private void initializeViews(Context context) {
@@ -60,14 +67,28 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.time_navigator, this);
 
+        mTvCurrent = (TextView) findViewById(R.id.tv_current);
+        mIbPrev = (ImageButton) findViewById(R.id.ib_prev);
+        mIbNext = (ImageButton) findViewById(R.id.ib_next);
     }
 
     private void initStyle(AttributeSet attrs, int defStyleAttr) {
+
+        int color = 0;
+        int fontSize = 0;
+
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.TimeNavigator, defStyleAttr, 0);
 
         if (a != null) {
-            if (a.hasValue(R.styleable.TimeNavigator_timeInterval)) {
-                mTimeInterval = a.getInt(R.styleable.TimeNavigator_timeInterval, TimeInterval.EVERYTHING);
+            mTimeInterval = a.getInt(R.styleable.TimeNavigator_tnInterval, TimeInterval.EVERYTHING);
+
+            color = a.getColor(R.styleable.TimeNavigator_tnColor, Color.WHITE);
+            setColor(color);
+
+
+            if (a.hasValue(R.styleable.TimeNavigator_tnTextSize)) {
+                fontSize = a.getDimensionPixelSize(R.styleable.TimeNavigator_tnTextSize, 0);
+                mTvCurrent.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
             }
 
             a.recycle();
@@ -78,11 +99,7 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        mTvCurrent = (TextView) findViewById(R.id.tv_current);
-
-        mIbPrev = (ImageButton) findViewById(R.id.ib_prev);
         mIbPrev.setOnClickListener(this);
-        mIbNext = (ImageButton) findViewById(R.id.ib_next);
         mIbNext.setOnClickListener(this);
 
         updateTimeLabelAndButton();
@@ -143,7 +160,7 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
         // Update of text view
         currentTimeFormatted = mTimeHandler.getTimeFormatted(mCurrentTime);
 
-        mTvCurrent.setText(currentTimeFormatted);
+        mTvCurrent.setText(WordUtils.capitalizeFully(currentTimeFormatted));
     }
 
     public void setTimeInterval(@TimeInterval int timeInterval) {
@@ -186,4 +203,13 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
         this.mOnTimeSelectListener = mOnTimeSelectListener;
     }
 
+    public void setColor(int color){
+
+        mTvCurrent.setTextColor(color);
+
+        DrawableCompat.setTint(mIbNext.getDrawable(), color);
+        DrawableCompat.setTint(mIbPrev.getDrawable(), color);
+
+
+    }
 }
