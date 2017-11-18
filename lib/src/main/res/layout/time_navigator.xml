@@ -3,34 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <ImageButton
         android:id="@+id/ib_prev"
-        android:layout_width="0dip"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
-        android:visibility="invisible"
         android:scaleType="centerCrop"
-        android:padding="8dp"
+        android:visibility="invisible"
+        android:layout_gravity="start|center_vertical"
         app:srcCompat="@drawable/chevron_left" />
 
     <TextView
         android:id="@+id/tv_current"
-        android:layout_width="0dip"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:layout_gravity="center_vertical"
-        tools:text="Agosto" />
+        android:layout_gravity="center"/>
 
     <ImageButton
         android:id="@+id/ib_next"
-        android:layout_width="0dip"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
-        android:visibility="invisible"
         android:scaleType="centerCrop"
-        android:padding="8dp"
+        android:visibility="invisible"
+        android:layout_gravity="end|center_vertical"
         app:srcCompat="@drawable/chevron_right" />
+
+
 </merge>

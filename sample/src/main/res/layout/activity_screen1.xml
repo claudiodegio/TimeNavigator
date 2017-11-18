@@ -22,6 +22,7 @@
             android:id="@+id/tn"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:tnArrowSize="36dp"
             app:tnInterval="EveryThing"/>
 
     </android.support.design.widget.AppBarLayout>

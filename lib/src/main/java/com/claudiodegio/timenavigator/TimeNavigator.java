@@ -13,6 +13,8 @@ import android.util.Pair;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,7 +28,7 @@ import org.joda.time.Interval;
 
 import java.util.Date;
 
-public class TimeNavigator extends LinearLayout implements View.OnClickListener {
+public class TimeNavigator extends FrameLayout implements View.OnClickListener {
 
     private int mTimeInterval;
     private TimeHandler mTimeHandler;
@@ -52,7 +54,6 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
 
     public TimeNavigator(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         initializeViews(context);
         initStyle(attrs, defStyleAttr);
 
@@ -67,15 +68,16 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.time_navigator, this);
 
-        mTvCurrent = (TextView) findViewById(R.id.tv_current);
-        mIbPrev = (ImageButton) findViewById(R.id.ib_prev);
-        mIbNext = (ImageButton) findViewById(R.id.ib_next);
+        mTvCurrent =  findViewById(R.id.tv_current);
+        mIbPrev =  findViewById(R.id.ib_prev);
+        mIbNext =  findViewById(R.id.ib_next);
     }
 
     private void initStyle(AttributeSet attrs, int defStyleAttr) {
 
         int color = 0;
         int fontSize = 0;
+        int arrowsSize;
 
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.TimeNavigator, defStyleAttr, 0);
 
@@ -90,6 +92,22 @@ public class TimeNavigator extends LinearLayout implements View.OnClickListener 
                 fontSize = a.getDimensionPixelSize(R.styleable.TimeNavigator_tnTextSize, 0);
                 mTvCurrent.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
             }
+
+
+            if (a.hasValue(R.styleable.TimeNavigator_tnArrowSize)) {
+                arrowsSize = a.getDimensionPixelSize(R.styleable.TimeNavigator_tnArrowSize, 0);
+                ViewGroup.LayoutParams params = mIbNext.getLayoutParams();
+                params.height = arrowsSize;
+                params.width = arrowsSize;
+                mIbNext.setLayoutParams(params);
+                mIbNext.requestLayout();
+                params = mIbPrev.getLayoutParams();
+                params.height = arrowsSize;
+                params.width = arrowsSize;
+                mIbPrev.setLayoutParams(params);
+                mIbPrev.requestLayout();
+            }
+
 
             a.recycle();
         }

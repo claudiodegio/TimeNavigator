@@ -16,5 +16,7 @@
 
         <attr name="tnTextSize" format="dimension"/>
 
+        <attr name="tnArrowSize" format="dimension"/>
+
     </declare-styleable>
 </resources>
