@@ -104,11 +104,15 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
 
         text += "<br>CurrentTime: " + df.format(currentTime);
 
+        text += "<br>CurrentTimeString: " + mTimeNavigator.getCurrentTimeAsString();
+
+
         mTvPeriodSelected.setText(Html.fromHtml(text));
     }
 
+
     @Override
-    public void onTimeSelected(Date from, Date to) {
+    public void onTimeSelected(Date from, Date to, String name) {
         updateLabel();
     }
 }

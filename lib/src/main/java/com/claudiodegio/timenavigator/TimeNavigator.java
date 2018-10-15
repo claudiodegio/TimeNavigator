@@ -153,9 +153,9 @@ public class TimeNavigator extends FrameLayout implements View.OnClickListener {
         if (mOnTimeSelectListener != null) {
             interval = getCurrentInterval();
             if (interval == null) {
-                mOnTimeSelectListener.onTimeSelected(null, null);
+                mOnTimeSelectListener.onTimeSelected(null, null, null);
             } else {
-                mOnTimeSelectListener.onTimeSelected(interval.first, interval.second);
+                mOnTimeSelectListener.onTimeSelected(interval.first, interval.second, mTvCurrent.getText().toString());
             }
         }
     }
@@ -215,6 +215,10 @@ public class TimeNavigator extends FrameLayout implements View.OnClickListener {
 
     public Date getCurrentTime(){
         return mCurrentTime.toDate();
+    }
+
+    public String getCurrentTimeAsString(){
+        return mTvCurrent.getText().toString();
     }
 
     public void setOnTimeSelectListener(OnTimeSelectListener mOnTimeSelectListener) {

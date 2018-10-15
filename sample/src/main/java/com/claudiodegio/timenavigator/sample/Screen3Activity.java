@@ -102,12 +102,13 @@ public class Screen3Activity extends AppCompatActivity implements OnTimeSelectLi
         Date currentTime = mTimeNavigator.getCurrentTime();
 
         text += "<br>CurrentTime: " + df.format(currentTime);
+        text += "<br>CurrentTimeString: " + mTimeNavigator.getCurrentTimeAsString();
 
         mTvPeriodSelected.setText(Html.fromHtml(text));
     }
 
     @Override
-    public void onTimeSelected(Date from, Date to) {
+    public void onTimeSelected(Date from, Date to, String name) {
         updateLabel();
     }
 }

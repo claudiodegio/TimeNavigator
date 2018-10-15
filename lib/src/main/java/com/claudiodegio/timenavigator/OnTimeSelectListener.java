@@ -5,5 +5,5 @@ import java.util.Date;
 
 public interface OnTimeSelectListener {
 
-    void onTimeSelected(Date from, Date to);
+    void onTimeSelected(Date from, Date to, String name);
 }
