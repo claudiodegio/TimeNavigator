@@ -1,10 +1,10 @@
 package com.claudiodegio.timenavigator.sample;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.Html;
 import android.util.Pair;
 import android.view.View;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.claudiodegio.timenavigator.OnTimeSelectListener;
 import com.claudiodegio.timenavigator.TimeInterval;
 import com.claudiodegio.timenavigator.TimeNavigator;
+
+import org.joda.time.DateTime;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,7 +51,7 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
     }
 
 
-    @OnClick({R.id.bt_year, R.id.bt_month, R.id.bt_week, R.id.bt_all,R.id.bt_day})
+    @OnClick({R.id.bt_year, R.id.bt_month, R.id.bt_week, R.id.bt_all,R.id.bt_day, R.id.bt_set_time})
     public void actionOnButtonClick(View view){
 
         switch (view.getId()) {
@@ -71,6 +73,11 @@ public class Screen1Activity extends AppCompatActivity implements OnTimeSelectLi
 
             case R.id.bt_all:
                 mTimeNavigator.setTimeInterval(TimeInterval.EVERYTHING);
+                break;
+
+            case R.id.bt_set_time:
+                DateTime dateTime = DateTime.parse("2018-01-01");
+                mTimeNavigator.setCurrentTime(dateTime.toDate());
                 break;
 
         }

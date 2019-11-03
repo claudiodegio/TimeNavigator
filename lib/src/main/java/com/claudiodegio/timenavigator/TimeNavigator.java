@@ -3,11 +3,9 @@ package com.claudiodegio.timenavigator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v4.graphics.drawable.DrawableCompat;
+
+import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -16,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.claudiodegio.timenavigator.handler.TimeHandler;
@@ -232,6 +229,10 @@ public class TimeNavigator extends FrameLayout implements View.OnClickListener {
         DrawableCompat.setTint(mIbNext.getDrawable(), color);
         DrawableCompat.setTint(mIbPrev.getDrawable(), color);
 
+    }
 
+    public void setCurrentTime(Date time) {
+        this.mCurrentTime = new DateTime(time);
+        updateTimeLabelAndButton();
     }
 }

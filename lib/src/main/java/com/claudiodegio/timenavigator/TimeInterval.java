@@ -1,6 +1,6 @@
 package com.claudiodegio.timenavigator;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 
@@ -12,7 +12,6 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 
 @Retention(SOURCE)
-@IntDef({TimeInterval.EVERYTHING, TimeInterval.YEAR, TimeInterval.MONTH, TimeInterval.WEEK, TimeInterval.DAY})
 public @interface TimeInterval {
     int EVERYTHING = 0;
     int YEAR = 1;
