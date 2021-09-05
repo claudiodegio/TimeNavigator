@@ -1,11 +1,6 @@
 # TimeNavigator
 Cute library to implement a simple time navigation view. *Works from Android API 14 (ICS) and above*.
 
-<a href="https://play.google.com/store/apps/details?id=com.claudiodegio.timenavigator.sample">
-  <img alt="Get it on Google Play"
-       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
-</a>
-
 ![sample](https://raw.githubusercontent.com/claudiodegio/TimeNavigator/master/screen/screen_001.png)
 ![sample](https://raw.githubusercontent.com/claudiodegio/TimeNavigator/master/screen/screen_002.png)
 ![sample](https://raw.githubusercontent.com/claudiodegio/TimeNavigator/master/screen/screen_003.png)
